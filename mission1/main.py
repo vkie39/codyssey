@@ -1,5 +1,5 @@
 try:
-    with open('mission_computer_main.log', 'r', encoding='utf-8') as file:
+    with open('mission1\mission_computer_main.log', 'r', encoding='utf-8') as file:
         print_log = file.readlines()  ##.read: 파일 전체, .readlines: 라인 별
         for line in reversed(print_log):  #reversed: 거꾸로
             print(line, end = '')
@@ -8,7 +8,7 @@ try:
         for line in print_log[-3:]:
             print(line, end = '')
     
-    with open('Error.log', 'w', encoding='utf-8') as file:
+    with open('mission1\Error.log', 'w', encoding='utf-8') as file:
         for line in print_log[-3:]:
             file.write(line)
 
