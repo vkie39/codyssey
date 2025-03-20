@@ -7,6 +7,7 @@ try:
     with open(file_name, 'r', encoding='utf-8') as file:
         lines = file.readlines()
         header = lines[0].strip().split(',')  # 첫 줄은 헤더
+        print(header)
         inventory_list = [line.strip().split(',') for line in lines[1:]]  # 데이터 읽기
 
     print("CSV 파일 읽기 성공:", inventory_list[:])
