@@ -24,6 +24,8 @@ class DummySensor:
     
     #값 반환하는 메서드 생성
     def get_env(self):
+        with open('task3\env_log.txt', 'a') as log_file:
+            log_file.write(str(self.env_values) + '\n')
         return self.env_values
 
 #인스턴스 생성
