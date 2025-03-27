@@ -46,4 +46,4 @@ timestamp = get_user_timestamp()
 print('----------출력----------')
 print('env_value 출력: ', ds.env_values) #클래스 인스턴스의 딕셔너리 참조
 print('\nset_env 값: ', ds.set_env()) #리턴값 지정 안 해서 None 출력    
-print('\ngt_env 값: ', ds.get_env()) #랜덤으로 생성된 값 출력
+print('\nget_env 값: ', ds.get_env(timestamp)) #랜덤으로 생성된 값 출력
