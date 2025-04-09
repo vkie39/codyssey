@@ -123,3 +123,11 @@ stop_thread.start()
 
 data_thread.join()
 stop_thread.join()
+
+이 에서 
+미션 컴퓨터의 부하를 가져오는 코드를 get_mission_computer_load() 메소드로 만들고 MissionComputer 클래스에 추가한다
+get_mission_computer_load() 메소드의 경우 다음과 같은 정보들을 가져 올 수 있게한다. 
+CPU 실시간 사용량
+메모리 실시간 사용량 
+get_mission_computer_load()에 해당 결과를 JSON 형식으로 출력하는 코드를 추가한다. 
+이 부분은 챗gpt의 센서 데이터 JSON출력에 적혀있음. 확인 요망
