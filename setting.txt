@@ -1,0 +1,8 @@
+mars_base_internal_temperature=true
+mars_base_external_temperature=true
+mars_base_internal_humidity=true
+mars_base_external_illuminance=true
+mars_base_internal_co2=true
+mars_base_internal_oxygen=true
+system_info=true
+system_load=true

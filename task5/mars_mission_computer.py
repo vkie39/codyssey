@@ -1,6 +1,7 @@
 import random
 import time
 import os #운영체제 정보
+import psutil # 메모리 정보 확인 라이브러리
 import platform #시스템 정보
 from threading import Thread #병렬 반복문
 
@@ -14,8 +15,8 @@ DEFAULT_SETTINGS = {
     "mars_base_external_illuminance": True,
     "mars_base_internal_co2": True,
     "mars_base_internal_oxygen": True,
-    "system_info": True,
-    "system_load": True
+    "system_info": True, #시스템 정보
+    "system_load": True #cpu, 메모리
 }
 
 #설정파일 불러오기
@@ -131,7 +132,7 @@ class MissionComputer:
                 self.running = False
 
     def get_mission_computer_info(self):
-        memory_gb = os.environ.get('PROCESSOR_ARCHITECTURE', 'Unknown')
+        memory_gb = round(psutil.virtual_memory().total / (1024 ** 3), 2)  # 메모리 용량을 GB 단위로 계산
         return {
             'os': platform.system(),
             'os version': platform.version(),
@@ -141,12 +142,28 @@ class MissionComputer:
         }
 
     def get_mission_computer_load(self):
-        cpu_usage = random.uniform(10, 90)
-        memory_usage = random.uniform(30, 80)
+        cpu_usage = psutil.cpu_percent(interval=1)
+        memory_usage = psutil.virtual_memory().percent
         return {
             'cpu_usage_percent': round(cpu_usage, 2),
             'memory_usage_percent': round(memory_usage, 2)
         }
+
+if __name__ == "__main__":
+    runComputer = MissionComputer()
+
+    try:
+        if runComputer.settings.get("system_info", True):
+            system_info = runComputer.get_mission_computer_info()
+            print("Initial system information:")
+            print(system_info)
+
+        if runComputer.settings.get("system_load", True):
+            load_info = runComputer.get_mission_computer_load()
+            print("Initial system load:")
+            print(load_info)
+    except Exception as e:
+        print("Error retrieving system information:", e)
 
 if __name__ == "__main__":
     runComputer = MissionComputer()
