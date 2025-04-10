@@ -93,6 +93,6 @@ stop_thread = Thread(target=RunComputer.check_stop_command)
 
 data_thread.start()
 stop_thread.start()
-
+00
 data_thread.join()
 stop_thread.join()
