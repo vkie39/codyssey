@@ -1,23 +1,22 @@
-# PyQt6의 핵심 위젯 및 레이아웃 클래스들 가져오기
 from PyQt6.QtWidgets import QApplication, QWidget, QPushButton, QVBoxLayout, QGridLayout, QLineEdit
-from PyQt6.QtCore import Qt  # 정렬 등 다양한 Qt 상수들 포함
-from PyQt6.QtGui import QFont  # 폰트 설정에 사용
+from PyQt6.QtCore import Qt 
+from PyQt6.QtGui import QFont  
 
-# 계산기 UI를 정의하는 클래스
+# 계산기 UI 클래스(QWidget)
 class CalculatorUI(QWidget):
     def __init__(self):
         super().__init__()
-        self.setWindowTitle("iPhone 스타일 계산기")  # 창 제목 설정
-        self.setFixedSize(320, 480)  # 고정 창 크기
-        self.init_ui()  # UI 초기화 메서드 호출
+        self.setWindowTitle("iPhone 스타일 계산기") 
+        self.setFixedSize(320, 480)
+        self.init_ui()  # UI 초기화 메서드
 
     def init_ui(self):
-        self.setStyleSheet("background-color: black;")  # 배경색 검정으로 설정
+        self.setStyleSheet("background-color: black;")  # css 스타일, 검정색 배경
 
-        # 디스플레이 부분 설정 (숫자/기호가 표시되는 부분)
+        # 디스플레이 부분 (숫자, 기호)
         self.display = QLineEdit()
         self.display.setAlignment(Qt.AlignmentFlag.AlignRight)  # 오른쪽 정렬
-        self.display.setReadOnly(True)  # 사용자가 직접 입력 못하게 설정
+        self.display.setReadOnly(True)  # 직접 입력 안 됨
         self.display.setText("0")  # 기본값 0으로 설정
         self.display.setStyleSheet("""
             background-color: black;
