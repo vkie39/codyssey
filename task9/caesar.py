@@ -1,9 +1,4 @@
 def caesar_cipher_decode(target_text):
-    """
-    카이사르 암호를 해독하는 함수
-    모든 가능한 shift 값에 대해 해독 결과를 출력하고
-    사용자가 올바른 결과를 선택할 수 있게 함
-    """
     # 영어 사전 단어들 (보너스 과제용)
     common_words = [
         'the', 'and', 'for', 'are', 'but', 'not', 'you', 'all', 'can', 'had',
@@ -85,12 +80,7 @@ def read_password_file():
         return content
     except FileNotFoundError:
         print('password.txt 파일을 찾을 수 없습니다.')
-        '''
-        # 테스트용 샘플 텍스트 제공
-        sample_text = 'Wklv lv d vhfuhw phvvdjh'
-        print(f'테스트용 샘플 텍스트를 사용합니다: {sample_text}')
-        return sample_text 
-'''
+
     except Exception as e:
         print(f'파일 읽기 중 오류가 발생했습니다: {e}')
         return None
@@ -135,8 +125,7 @@ def main():
                 
                 if save_confirm == 'y' or save_confirm == 'yes':
                     if save_result_to_file(selected_result, shift_num):
-                        print('암호 해독이 완료되었습니다!')
-                        print('한송희 박사는 드디어 비상 저장소의 문을 열 수 있게 되었습니다.')
+                        print('암호 해독 완료')
                     break
                 else:
                     print('다른 결과를 선택해보세요.\n')
