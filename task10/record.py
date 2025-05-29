@@ -4,11 +4,11 @@ import datetime
 import glob
 from typing import List, Tuple
 import pyaudio
-1
+
 class VoiceRecorder:
     """음성 녹음을 담당하는 클래스"""
     
-    def __init__(self, sample_rate: int = 44100, chunk_size: int = 1024, 
+    def __init__(self, sample_rate: int = 1000, chunk_size: int = 1024, 
                  audio_format=pyaudio.paInt16, channels: int = 1):
         """        
         Args:
