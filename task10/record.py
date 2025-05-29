@@ -4,7 +4,7 @@ import datetime
 import glob
 from typing import List, Tuple
 import pyaudio
-
+1
 class VoiceRecorder:
     """음성 녹음을 담당하는 클래스"""
     
