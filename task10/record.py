@@ -1,24 +1,16 @@
-#!/usr/bin/env python3
-# -*- coding: utf-8 -*-
-
 import os
-import sys
 import wave
 import datetime
 import glob
 from typing import List, Tuple
-
 import pyaudio
-
 
 class VoiceRecorder:
     """음성 녹음을 담당하는 클래스"""
     
     def __init__(self, sample_rate: int = 44100, chunk_size: int = 1024, 
                  audio_format=pyaudio.paInt16, channels: int = 1):
-        """
-        VoiceRecorder 초기화
-        
+        """        
         Args:
             sample_rate: 샘플링 주파수 (기본값: 44100 Hz)
             chunk_size: 버퍼 크기 (기본값: 1024)
@@ -86,7 +78,7 @@ class VoiceRecorder:
             if duration:
                 print(f'{duration}초 동안 녹음합니다.')
             else:
-                print('Enter 키를 누르면 녹음이 종료됩니다.')
+                print('Ctrl + C 키를 누르면 녹음이 종료됩니다.')
             
             frames = []
             
@@ -140,7 +132,7 @@ class VoiceRecorder:
             (파일명, 파일경로) 튜플의 리스트
         """
         pattern = os.path.join(self.records_dir, '*.wav')
-        files = glob.glob(pattern)
+        files = glob.glob(pattern) # 알아보는걸로
         
         if not start_date and not end_date:
             # 모든 파일 반환
