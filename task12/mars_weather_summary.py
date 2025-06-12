@@ -2,7 +2,7 @@ import csv
 import mysql.connector
 
 def connect_mysql(host, user, password, database):
-    connection = mysql.connector.connect(
+    connection = mysql.connector.connect( #커넥션 개체
         host = host,
         user = user,
         password = password,
@@ -20,7 +20,7 @@ def read_csv(filename):
     return rows
 
 def insert_data(connection, data):
-    cursor = connection.cursor()
+    cursor = connection.cursor() #sql에 쿼리 실행 가능하도록
     for row in data:
         # row: [weather_id, mars_date, temp, storm]
         mars_date = row[1]
@@ -30,7 +30,7 @@ def insert_data(connection, data):
             'INSERT INTO mars_weather (mars_date, temp, storm) '
             'VALUES (%s, %s, %s)'
         )
-        cursor.execute(query, (mars_date, temp, storm))
+        cursor.execute(query, (mars_date, temp, storm)) #excute = 명령 실행 (쿼리, 값들)
     connection.commit()
     cursor.close()
 
